@@ -31,11 +31,24 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _resetCounter(){
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Contador'),
+        actions: [
+          IconButton(
+            onPressed: _resetCounter,
+            tooltip: 'Zerar Contador',
+            icon: Icon(Icons.replay),
+          )
+        ],
       ),
       body: Center(
         child: Column(
@@ -47,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter vezes',
               style: Theme.of(context).textTheme.headlineMedium,
+              
             ),
           ],
         ),
